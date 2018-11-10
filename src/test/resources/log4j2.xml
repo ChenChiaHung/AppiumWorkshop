@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+
+	<!-- Variable -->
+	<Properties>
+		<Property name="logfilePath">logs</Property>
+		<Property name="patternLayout">%d{HH:mm:ss.SSS} [%level] %C{0}:%M:%L %msg %n</Property>
+	</Properties>
+
+	<!-- Configuration -->
+	<Appenders>
+		<!-- Output log on console -->
+		<Console name="console" target="SYSTEM_OUT">
+			<PatternLayout>
+				<Pattern>${patternLayout}</Pattern>
+			</PatternLayout>
+		</Console>
+		<!--Output log into file -->
+		<RollingFile name="rollingFile" fileName="${logfilePath}/info.log"
+								 filePattern="${logfilePath}/info-%d{yyyy-MM-dd}-%i.log">
+			<PatternLayout>
+				<pattern>${patternLayout}</pattern>
+			</PatternLayout>
+			<Policies>
+				<TimeBasedTriggeringPolicy interval="1" modulate="true"/>
+				<SizeBasedTriggeringPolicy size="10MB"/>
+			</Policies>
+			<DefaultRolloverStrategy max="5"/>
+		</RollingFile>
+	</Appenders>
+
+	<!-- Set up Loggers -->
+	<Loggers>
+		<Root level="all">
+			<AppenderRef ref="console"/>
+			<AppenderRef ref="rollingFile"/>
+		</Root>
+	</Loggers>
+
+</Configuration>
