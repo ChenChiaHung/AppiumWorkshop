@@ -3,9 +3,6 @@ package com.github.chenchiahung.page.productdetail;
 import com.github.chenchiahung.page.PageObject;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class ProductDetail extends PageObject {
 
@@ -22,10 +19,7 @@ public class ProductDetail extends PageObject {
 	 * @return {@link String}
 	 */
 	public String getTitle() {
-		WebDriverWait wait = new WebDriverWait(driver, 5);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(title));
-		WebElement element = driver.findElement(title);
-		return element.getAttribute("text");
+		return action.getValueFromAttribute(title, "text");
 	}
 
 	/**
@@ -35,10 +29,7 @@ public class ProductDetail extends PageObject {
 	 */
 	public ProductDetail tapOKGotItLink() {
 		System.out.println("Step 12,13 - Click 'OK, Got it!' button on tip"); // deprecated
-		WebDriverWait wait = new WebDriverWait(driver, 5);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(okGotItLink));
-		WebElement element = driver.findElement(okGotItLink);
-		element.click();
+		action.tap(okGotItLink);
 		return new ProductDetail(driver);
 	}
 

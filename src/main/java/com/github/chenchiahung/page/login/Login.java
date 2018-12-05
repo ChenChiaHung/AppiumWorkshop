@@ -5,13 +5,11 @@ import com.github.chenchiahung.page.home.Home;
 import io.appium.java_client.MobileBy;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class Login extends PageObject {
 
-	By editTextbox = MobileBy.AndroidUIAutomator(".className(\"android.widget.EditText\")");
+	By accountTextbox = MobileBy.AndroidUIAutomator(".className(\"android.widget.EditText\").instance(0)");
+	By passwordTextbox = MobileBy.AndroidUIAutomator(".className(\"android.widget.EditText\").instance(1)");
 	By loginButton = By.id("com.thecarousell.Carousell:id/login_page_login_button");
 
 	public Login(WebDriver driver) {
@@ -24,10 +22,7 @@ public class Login extends PageObject {
 	 * @param account
 	 */
 	public Login enterAccount(String account) {
-		WebDriverWait wait = new WebDriverWait(driver, 5);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(editTextbox));
-		WebElement element = driver.findElements(editTextbox).get(0);
-		element.sendKeys(account);
+		action.type(accountTextbox, account);
 		return this;
 	}
 
@@ -38,10 +33,7 @@ public class Login extends PageObject {
 	 * @return
 	 */
 	public Login enterPassword(String password) {
-		WebDriverWait wait = new WebDriverWait(driver, 5);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(editTextbox));
-		WebElement element = driver.findElements(editTextbox).get(1);
-		element.sendKeys(password);
+		action.type(passwordTextbox, password);
 		return this;
 	}
 
@@ -51,11 +43,7 @@ public class Login extends PageObject {
 	 * @return
 	 */
 	public Home tapLoginButtonExpectingSuccess() {
-		System.out.println("Step 05 - Click Log in Button"); // deprecated
-		WebDriverWait wait = new WebDriverWait(driver, 5);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(loginButton));
-		WebElement element = driver.findElement(loginButton);
-		element.click();
+		action.tap(loginButton);
 		return new Home(driver);
 	}
 
@@ -65,10 +53,7 @@ public class Login extends PageObject {
 	 * @return
 	 */
 	public Login tapLoginButtonExpectingFailure() {
-		WebDriverWait wait = new WebDriverWait(driver, 5);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(loginButton));
-		WebElement element = driver.findElement(loginButton);
-		element.click();
+		action.tap(loginButton);
 		return new Login(driver);
 	}
 
@@ -84,6 +69,7 @@ public class Login extends PageObject {
 		this.enterAccount(account);
 		System.out.println("Step 04 - Input Password"); // deprecated
 		this.enterPassword(password);
+		System.out.println("Step 05 - Click Log in Button"); // deprecated
 		return this.tapLoginButtonExpectingSuccess();
 	}
 

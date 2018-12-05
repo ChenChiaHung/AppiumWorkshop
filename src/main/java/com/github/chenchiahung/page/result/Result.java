@@ -5,9 +5,6 @@ import com.github.chenchiahung.page.productdetail.ProductDetail;
 import com.github.chenchiahung.page.search.Search;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class Result extends PageObject {
 
@@ -26,10 +23,7 @@ public class Result extends PageObject {
 	 */
 	public Search tapSearchTextBox() {
 		System.out.println("Step 09 - Click 'Search' Textbox bar"); // deprecated
-		WebDriverWait wait = new WebDriverWait(driver, 5);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(searchTextBox));
-		WebElement element = driver.findElement(searchTextBox);
-		element.click();
+		action.tap(searchTextBox);
 		return new Search(driver);
 	}
 
@@ -41,10 +35,7 @@ public class Result extends PageObject {
 	 */
 	public ProductDetail browseProductList(int index) {
 		System.out.println("Step 11 - Click first listing on search result"); // deprecated
-		WebDriverWait wait = new WebDriverWait(driver, 30);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(productList));
-		WebElement element = driver.findElements(productList).get(index);
-		element.click();
+		action.tapElementsByIndex(productList, 0);
 		return new ProductDetail(driver);
 	}
 
@@ -55,10 +46,7 @@ public class Result extends PageObject {
 	 */
 	public Result tapOKGotItLink() {
 		System.out.println("Step 08 - Click 'Ok, got it!' button on tip"); // deprecated
-		WebDriverWait wait = new WebDriverWait(driver, 10);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(okGotItLink));
-		WebElement element = driver.findElement(okGotItLink);
-		element.click();
+		action.tap(okGotItLink);
 		return this;
 	}
 }
