@@ -2,14 +2,8 @@ package com.github.chenchiahung.page.search;
 
 import com.github.chenchiahung.page.PageObject;
 import com.github.chenchiahung.page.result.Result;
-import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.android.nativekey.AndroidKey;
-import io.appium.java_client.android.nativekey.KeyEvent;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class Search extends PageObject {
 
@@ -26,10 +20,7 @@ public class Search extends PageObject {
 	 * @return {@link Search}
 	 */
 	public Search enterKeyword(String keyword) {
-		WebDriverWait wait = new WebDriverWait(driver, 5);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(searchTextBox));
-		WebElement element = driver.findElement(searchTextBox);
-		element.sendKeys(keyword);
+		action.type(searchTextBox, keyword);
 		return this;
 	}
 
@@ -39,7 +30,7 @@ public class Search extends PageObject {
 	 * @return {@link Result}
 	 */
 	public Result submitKeyword() {
-		((AndroidDriver) driver).pressKey(new KeyEvent(AndroidKey.ENTER));
+		action.submit();
 		return new Result(driver);
 	}
 

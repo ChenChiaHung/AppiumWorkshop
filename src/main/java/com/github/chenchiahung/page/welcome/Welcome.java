@@ -4,9 +4,6 @@ import com.github.chenchiahung.page.PageObject;
 import com.github.chenchiahung.page.misc.EmailDialog;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class Welcome extends PageObject {
 
@@ -23,10 +20,7 @@ public class Welcome extends PageObject {
 	 */
 	public EmailDialog tapLoginButton() {
 		System.out.println("Step 01 - Click Login Button"); // deprecated
-		WebDriverWait wait = new WebDriverWait(driver, 5);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(loginButton));
-		WebElement element = driver.findElement(loginButton);
-		element.click();
+		action.tap(loginButton);
 		return new EmailDialog(driver);
 	}
 }
