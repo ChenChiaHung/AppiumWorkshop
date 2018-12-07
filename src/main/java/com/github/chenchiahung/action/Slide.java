@@ -11,5 +11,7 @@ public interface Slide {
 
 	Action slideTillFind(By by, By target);
 
-	Action slideTillFind(WebElement by, WebElement target);
+	Action slideTillFind(WebElement element, WebElement target);
+
+	Action slideTillFind(WebElement element, By target);
 }

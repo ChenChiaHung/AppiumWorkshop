@@ -3,14 +3,22 @@ package com.github.chenchiahung.page.result;
 import com.github.chenchiahung.page.PageObject;
 import com.github.chenchiahung.page.productdetail.ProductDetail;
 import com.github.chenchiahung.page.search.Search;
-import org.openqa.selenium.By;
+import io.appium.java_client.pagefactory.AndroidFindBy;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+import java.util.List;
 
 public class Result extends PageObject {
 
-	By searchTextBox = By.id("com.thecarousell.Carousell:id/header_page_search_text_field");
-	By productList = By.id("com.thecarousell.Carousell:id/card_product");
-	By okGotItLink = By.id("com.thecarousell.Carousell:id/feature_button");
+  @AndroidFindBy(id = "com.thecarousell.Carousell:id/header_page_search_text_field")
+	private WebElement searchTextBox;
+
+  @AndroidFindBy(id = "com.thecarousell.Carousell:id/card_product")
+	private List<WebElement> productList;
+
+  @AndroidFindBy(id = "com.thecarousell.Carousell:id/feature_button")
+	private WebElement okGotItLink;
 
 	public Result(WebDriver driver) {
 		super(driver);

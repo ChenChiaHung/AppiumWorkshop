@@ -2,14 +2,16 @@ package com.github.chenchiahung.page.search;
 
 import com.github.chenchiahung.page.PageObject;
 import com.github.chenchiahung.page.result.Result;
-import org.openqa.selenium.By;
+import io.appium.java_client.pagefactory.AndroidFindBy;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 public class Search extends PageObject {
 
-	By searchTextBox = By.id("com.thecarousell.Carousell:id/input_search_bar");
+  @AndroidFindBy(id = "com.thecarousell.Carousell:id/input_search_bar")
+	private WebElement searchTextBox;
 
-	public Search(WebDriver driver) {
+  public Search(WebDriver driver) {
 		super(driver);
 	}
 

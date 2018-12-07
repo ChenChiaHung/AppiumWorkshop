@@ -2,12 +2,14 @@ package com.github.chenchiahung.page.misc;
 
 import com.github.chenchiahung.page.PageObject;
 import com.github.chenchiahung.page.login.Login;
-import org.openqa.selenium.By;
+import io.appium.java_client.pagefactory.AndroidFindBy;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 public class EmailDialog extends PageObject {
 
-	By cancelLink = By.id("com.google.android.gms:id/cancel");
+	@AndroidFindBy(id = "com.google.android.gms:id/cancel")
+	protected WebElement cancelLink;
 
 	public EmailDialog(WebDriver driver) {
 		super(driver);

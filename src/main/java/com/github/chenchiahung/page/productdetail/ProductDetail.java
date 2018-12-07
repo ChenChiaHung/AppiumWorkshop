@@ -1,13 +1,17 @@
 package com.github.chenchiahung.page.productdetail;
 
 import com.github.chenchiahung.page.PageObject;
-import org.openqa.selenium.By;
+import io.appium.java_client.pagefactory.AndroidFindBy;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 public class ProductDetail extends PageObject {
 
-	By okGotItLink = By.id("com.thecarousell.Carousell:id/feature_button");
-	By title = By.id("com.thecarousell.Carousell:id/tvInfo");
+	@AndroidFindBy(id = "com.thecarousell.Carousell:id/feature_button")
+	private WebElement okGotItLink;
+
+	@AndroidFindBy(id = "com.thecarousell.Carousell:id/tvInfo")
+	private WebElement title;
 
 	public ProductDetail(WebDriver driver) {
 		super(driver);
@@ -32,7 +36,6 @@ public class ProductDetail extends PageObject {
 		action.tap(okGotItLink);
 		return new ProductDetail(driver);
 	}
-
 
 	/**
 	 * Check if title contains keyword

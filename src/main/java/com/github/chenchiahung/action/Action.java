@@ -257,6 +257,25 @@ public class Action implements Wait, Tap, Type, Slide, Misc {
 	}
 
 	/**
+	 * Slide source element to find target element
+	 * @param source
+	 * @param target
+	 * @return
+	 */
+	@Override
+	public Action slideTillFind(WebElement source, By target) {
+		this.waitFor(source);
+		for (int count = 0; count < DEFAULT_RETRY_TIME; count++) {
+			if (this.exists(target)) {
+				break;
+			} else {
+				this.slide(source);
+			}
+		}
+		return this;
+	}
+
+	/**
 	 * Submit form
 	 * @return
 	 */

@@ -3,14 +3,21 @@ package com.github.chenchiahung.page.login;
 import com.github.chenchiahung.page.PageObject;
 import com.github.chenchiahung.page.home.Home;
 import io.appium.java_client.MobileBy;
+import io.appium.java_client.pagefactory.AndroidFindBy;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 public class Login extends PageObject {
 
-	By accountTextbox = MobileBy.AndroidUIAutomator(".className(\"android.widget.EditText\").instance(0)");
-	By passwordTextbox = MobileBy.AndroidUIAutomator(".className(\"android.widget.EditText\").instance(1)");
-	By loginButton = By.id("com.thecarousell.Carousell:id/login_page_login_button");
+	@AndroidFindBy(uiAutomator = ".className(\"android.widget.EditText\").instance(0)")
+	private WebElement accountTextbox;
+
+  @AndroidFindBy(uiAutomator = ".className(\"android.widget.EditText\").instance(1)")
+	private WebElement passwordTextbox;
+
+  @AndroidFindBy(id = "com.thecarousell.Carousell:id/login_page_login_button")
+	private WebElement loginButton;
 
 	public Login(WebDriver driver) {
 		super(driver);

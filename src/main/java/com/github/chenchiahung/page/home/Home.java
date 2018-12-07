@@ -3,15 +3,17 @@ package com.github.chenchiahung.page.home;
 import com.github.chenchiahung.page.PageObject;
 import com.github.chenchiahung.page.result.Result;
 import io.appium.java_client.MobileBy;
+import io.appium.java_client.pagefactory.AndroidFindBy;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 public class Home extends PageObject {
 
-	By categoryView = By.id("com.thecarousell.Carousell:id/recyclerView");
-	private int maxTries = 10;
+  @AndroidFindBy(id = "com.thecarousell.Carousell:id/recyclerView")
+	private WebElement categoryView;
 
-	public Home(WebDriver driver) {
+  public Home(WebDriver driver) {
 		super(driver);
 	}
 

@@ -2,12 +2,18 @@ package com.github.chenchiahung.page.welcome;
 
 import com.github.chenchiahung.page.PageObject;
 import com.github.chenchiahung.page.misc.EmailDialog;
+import io.appium.java_client.pagefactory.AndroidFindBy;
+import io.appium.java_client.pagefactory.SelendroidFindBy;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
 public class Welcome extends PageObject {
 
-	By loginButton = By.id("com.thecarousell.Carousell:id/welcome_page_login_button");
+	@AndroidFindBy(id = "com.thecarousell.Carousell:id/welcome_page_login_button")
+	private WebElement loginButton;
 
 	public Welcome(WebDriver driver) {
 		super(driver);
