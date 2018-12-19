@@ -39,20 +39,16 @@ public class MyFirstAppiumTest {
     URL url = new URL("http://127.0.0.1:9999/wd/hub");
     DesiredCapabilities capabilities = new DesiredCapabilities();
     capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");
-    capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, "8.0.0");
+    capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, "9.0.0");
     capabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, "UiAutomator2");
     capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "emulator-5554");
     capabilities.setCapability(MobileCapabilityType.UDID, "emulator-5554");
     capabilities.setCapability(MobileCapabilityType.FULL_RESET, true);
-    capabilities.setCapability(MobileCapabilityType.CLEAR_SYSTEM_FILES, true);
-    capabilities.setCapability(
-        MobileCapabilityType.APP, "/Users/chiahungchen/Documents/AppPackage/2.92.217.196-1384.apk");
-    capabilities.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, 30000);
-    capabilities.setCapability(
-        AndroidMobileCapabilityType.APP_ACTIVITY,
-        "com.thecarousell.Carousell.activities.EntryActivity");
-    capabilities.setCapability(
-        AndroidMobileCapabilityType.APP_PACKAGE, "com.thecarousell.Carousell");
+    capabilities.setCapability(MobileCapabilityType.APP, "/Users/chiahungchen/Documents/AppPackage/2.92.217.196-1384.apk");
+    capabilities.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, 60000);
+    capabilities.setCapability(AndroidMobileCapabilityType.APP_ACTIVITY, "com.thecarousell.Carousell.activities.EntryActivity");
+    capabilities.setCapability(AndroidMobileCapabilityType.APP_PACKAGE, "com.thecarousell.Carousell");
+    capabilities.setCapability(AndroidMobileCapabilityType.AVD, "Pixel2_API26");
     driver = new AndroidDriver(url, capabilities);
 
     Log.info("setUp - End");
@@ -69,7 +65,7 @@ public class MyFirstAppiumTest {
     WebElement element = driver.findElement(loginButton_1);
     element.click();
 
-    Log.info("Step 02 - Click Cancel"); // deprecated
+    Log.info("Step 02 - Click Cancel");
     By cancelLink =
         By.xpath(
             "//android.widget.LinearLayout[@content-desc=\"Choose an Account\"]/android.widget.LinearLayout/android.widget.Button");
@@ -77,17 +73,17 @@ public class MyFirstAppiumTest {
     element = driver.findElement(cancelLink);
     element.click();
 
-    Log.info("Step 03 - Input Account"); // deprecated
+    Log.info("Step 03 - Input Account");
     By editTextbox = MobileBy.AndroidUIAutomator(".className(\"android.widget.EditText\")");
     wait.until(ExpectedConditions.visibilityOfElementLocated(editTextbox));
     element = driver.findElements(editTextbox).get(0);
     element.sendKeys("chiahung003");
 
-    Log.info("Step 04 - Input Password"); // deprecated
+    Log.info("Step 04 - Input Password");
     element = driver.findElements(editTextbox).get(1);
     element.sendKeys("1111111w");
 
-    Log.info("Step 05 - Click Log in Button"); // deprecated
+    Log.info("Step 05 - Click Log in Button");
     By loginButton_2 = By.id("com.thecarousell.Carousell:id/login_page_login_button");
     wait.until(ExpectedConditions.visibilityOfElementLocated(loginButton_2));
     element = driver.findElement(loginButton_2);
