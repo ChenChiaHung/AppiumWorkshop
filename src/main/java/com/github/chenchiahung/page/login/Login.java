@@ -89,6 +89,7 @@ public class Login extends PageObject {
 		this.enterAccount(account);
 		Log.info("Step 04 - Input Password");
 		this.enterPassword(password);
+		Log.info("Step 05 - Click Log in Button");
 		return this.tapLoginButtonExpectingSuccess();
 	}
 
