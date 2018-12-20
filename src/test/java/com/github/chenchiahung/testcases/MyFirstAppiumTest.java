@@ -35,20 +35,16 @@ public class MyFirstAppiumTest {
 		URL url = new URL("http://127.0.0.1:9999/wd/hub");
 		DesiredCapabilities capabilities = new DesiredCapabilities();
 		capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");
-		capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, "8.0.0");
+		capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, "9.0.0");
 		capabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, "UiAutomator2");
 		capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "emulator-5554");
 		capabilities.setCapability(MobileCapabilityType.UDID, "emulator-5554");
 		capabilities.setCapability(MobileCapabilityType.FULL_RESET, true);
-		capabilities.setCapability(MobileCapabilityType.CLEAR_SYSTEM_FILES, true);
-		capabilities.setCapability(
-						MobileCapabilityType.APP, "/Users/chiahungchen/Documents/AppPackage/2.92.217.196-1384.apk");
-		capabilities.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, 30000);
-		capabilities.setCapability(
-						AndroidMobileCapabilityType.APP_ACTIVITY,
-						"com.thecarousell.Carousell.activities.EntryActivity");
-		capabilities.setCapability(
-						AndroidMobileCapabilityType.APP_PACKAGE, "com.thecarousell.Carousell");
+		capabilities.setCapability(MobileCapabilityType.APP, "/Users/chiahungchen/Documents/AppPackage/2.92.217.196-1384.apk");
+		capabilities.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, 60000);
+		capabilities.setCapability(AndroidMobileCapabilityType.APP_ACTIVITY, "com.thecarousell.Carousell.activities.EntryActivity");
+		capabilities.setCapability(AndroidMobileCapabilityType.APP_PACKAGE, "com.thecarousell.Carousell");
+		capabilities.setCapability(AndroidMobileCapabilityType.AVD, "Pixel2_API26");
 		driver = new AndroidDriver(url, capabilities);
 
 		Log.info("setUp - End");

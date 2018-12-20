@@ -1,6 +1,5 @@
 package com.github.chenchiahung.action;
 
-import com.github.chenchiahung.page.home.Home;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.nativekey.AndroidKey;
