@@ -46,7 +46,6 @@ public class MyFirstAppiumTest {
 		capabilities.setCapability(AndroidMobileCapabilityType.APP_PACKAGE, "com.thecarousell.Carousell");
 		capabilities.setCapability(AndroidMobileCapabilityType.AVD, "Pixel2_API26");
 		driver = new AndroidDriver(url, capabilities);
-
 		Log.info("setUp - End");
 	}
 

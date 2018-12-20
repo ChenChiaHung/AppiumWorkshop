@@ -28,7 +28,7 @@ public class Login extends PageObject {
 	 *
 	 * @param account
 	 */
-	public Login enterAccount(String account) {
+	private Login enterAccount(String account) {
 		WebDriverWait wait = new WebDriverWait(driver, 5);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(editTextbox));
 		WebElement element = driver.findElements(editTextbox).get(0);
@@ -42,7 +42,7 @@ public class Login extends PageObject {
 	 * @param password
 	 * @return
 	 */
-	public Login enterPassword(String password) {
+	private Login enterPassword(String password) {
 		WebDriverWait wait = new WebDriverWait(driver, 5);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(editTextbox));
 		WebElement element = driver.findElements(editTextbox).get(1);

@@ -37,7 +37,7 @@ public class Home extends PageObject {
 	public Result browseCategory(String categoryName) {
 		Log.info("Step 06 - Define the swipe action on the view bar of explore carousell");
 		Log.info("Step 07 - Try to find Cars category on the view bar of explore carousell");
-		WebDriverWait wait = new WebDriverWait(driver, 5);
+		WebDriverWait wait = new WebDriverWait(driver, 10);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(categoryView));
 		WebElement categories = driver.findElement(categoryView);
 
