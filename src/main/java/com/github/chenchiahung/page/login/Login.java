@@ -30,7 +30,7 @@ public class Login extends PageObject {
 	 *
 	 * @param account
 	 */
-	public Login enterAccount(String account) {
+	private Login enterAccount(String account) {
 		action.type(accountTextbox, account);
 		return this;
 	}
@@ -41,7 +41,7 @@ public class Login extends PageObject {
 	 * @param password
 	 * @return
 	 */
-	public Login enterPassword(String password) {
+	private Login enterPassword(String password) {
 		action.type(passwordTextbox, password);
 		return this;
 	}
