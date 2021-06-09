@@ -1,4 +1,4 @@
-# PracticeAppium
+# Appium Workshop
 There are 5 branches for Appium workshop, each branch has different purposes below.
 
 #### Example_01
